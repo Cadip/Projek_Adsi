@@ -2,6 +2,10 @@
 	session_start();
 	include('koneksi.php');
 
+    if (isset($_POST['reserve'])) {
+        header('Location: payment2.php');
+        exit();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -134,212 +138,11 @@
             </div>
             <!-- HEADER -->
 
-            <!-- KURSI ROW 1 -->
-            <div class="row">
-                <div class="row">
-                    <div class="row" style="margin-left: 30%; margin-right: 30%;">
-                        <div class="row" style="text-align: center">
-                            <div class="col-lg-3" style="padding-left: 100px">
-                                <div class="row">
-                                    <a href="#" style="color: white"><i class="fa fa-couch" style="color: white"></i></a>
-                                </div>
-                                <div class="row" style="color: white">
-                                    <p>1</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-3" style="padding-left: 50px">
-                                <div class="row">
-                                    <a href="#" style="color: white"><i class="fa fa-couch" style="color: white"></i></a>
-                                </div>
-                                <div class="row" style="color: white">
-                                    <p>2</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-3" style="padding-right: 50px">
-                                <div class="row">
-                                    <a href="#" style="color: white"><i class="fa fa-couch" style="color: white"></i></a>
-                                </div>
-                                <div class="row" style="color: white">
-                                    <p>3</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-3" style="padding-right: 100px">
-                                <div class="row">
-                                    <a href="#" style="color: white"><i class="fa fa-couch" style="color: white"></i></a>
-                                </div>
-                                <div class="row" style="color: white">
-                                    <p>4</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="row" style="text-align: center; ">
+                <a href="#" ><img src="./img/kursi.png" alt="kursi" style="width: 400px"></a>
             </div>
-            <!-- KURSI ROW 1 -->
 
-            <!-- KURSI ROW 2 -->
-            <div class="row">
-                <div class="row">
-                    <div class="row" style="margin-left: 30%; margin-right: 20%;">
-                        <div class="row" style="text-align: center">
-                            <div class="col-lg-2">
-                                <div class="row">
-                                    <a href="#" style="color: white"><i class="fa fa-couch" style="color: #006693"></i></a>
-                                </div>
-                                <div class="row" style="color: white">
-                                    <p>5</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-2">
-                                <div class="row">
-                                    <a href="#" style="color: white"><i class="fa fa-couch" style="color: #006693"></i></a>
-                                </div>
-                                <div class="row" style="color: white">
-                                    <p>6</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-2">
-                                <div class="row">
-                                    <a href="#" style="color: white"><i class="fa fa-couch" style="color: #006693"></i></a>
-                                </div>
-                                <div class="row" style="color: white">
-                                    <p>7</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-2">
-                                <div class="row">
-                                    <a href="#" style="color: white"><i class="fa fa-couch" style="color: #006693"></i></a>
-                                </div>
-                                <div class="row" style="color: white">
-                                    <p>8</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-2">
-                                <div class="row">
-                                    <a href="#" style="color: white"><i class="fa fa-couch" style="color: #006693"></i></a>
-                                </div>
-                                <div class="row" style="color: white">
-                                    <p>9</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- KURSI ROW 2 -->
-
-            <!-- KURSI ROW 3 -->
-            <div class="row">
-                <div class="row">
-                    <div class="row" style="margin-left: 30%; margin-right: 20%;">
-                        <div class="row" style="text-align: center">
-                            <div class="col-lg-2">
-                                <div class="row">
-                                    <a href="#" style="color: white;"><i class="fa fa-couch" style="color: #006693"></i></a>
-                                </div>
-                                <div class="row" style="color: white">
-                                    <p>10</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-2">
-                                <div class="row">
-                                    <a href="#" style="color: white"><i class="fa fa-couch" style="color: #006693"></i></a>
-                                </div>
-                                <div class="row" style="color: white">
-                                    <p>11</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-2">
-                                <div class="row">
-                                    <a href="#" style="color: white"><i class="fa fa-couch" style="color: white"></i></a>
-                                </div>
-                                <div class="row" style="color: white">
-                                    <p>12</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-2">
-                                <div class="row">
-                                    <a href="#" style="color: white"><i class="fa fa-couch" style="color: white"></i></a>
-                                </div>
-                                <div class="row" style="color: white">
-                                    <p>13</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-2">
-                                <div class="row">
-                                    <a href="#" style="color: white"><i class="fa fa-couch" style="color: white"></i></a>
-                                </div>
-                                <div class="row" style="color: white">
-                                    <p>14</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- KURSI ROW 3 -->
-
-            <!-- KURSI ROW 4 -->
-            <div class="row">
-                <div class="row">
-                    <div class="row" style="margin-left: 30%; margin-right: 20%;">
-                        <div class="row" style="text-align: center">
-                            <div class="col-lg-2">
-                                <div class="row">
-                                    <a href="#" style="color: white"><i class="fa fa-couch" style="color: white"></i></a>
-                                </div>
-                                <div class="row" style="color: white">
-                                    <p>15</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-2">
-                                <div class="row">
-                                    <a href="#" style="color: white"><i class="fa fa-couch" style="color: #006693"></i></a>
-                                </div>
-                                <div class="row" style="color: white">
-                                    <p>16</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-2">
-                                <div class="row">
-                                    <a href="#" style="color: white"><i class="fa fa-couch" style="color: #006693"></i></a>
-                                </div>
-                                <div class="row" style="color: white">
-                                    <p>17</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-2">
-                                <div class="row">
-                                    <a href="#" style="color: white"><i class="fa fa-couch" style="color: #006693"></i></a>
-                                </div>
-                                <div class="row" style="color: white">
-                                    <p>18</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-2">
-                                <div class="row">
-                                    <a href="#" style="color: white"><i class="fa fa-couch" style="color: #006693"></i></a>
-                                </div>
-                                <div class="row" style="color: white">
-                                    <p>19</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- KURSI ROW 4 -->
-
-            <!-- INFO -->
-            <div class="row" style="padding-top: 20px; text-align: center;">
-                <div class="row">
-                    <a href="#" style="color: white"><i class="fa fa-circle" style="color: white"></i> Available <i class="fa fa-circle" style="color: #006693"></i> Reserved <i class="fa fa-circle" style="color: cyan"></i> Selected</a>
-                    
-                </div>
-            </div>
-            <!-- INFO -->
-
-            <div class="row" style="padding-top: 20px; text-align: center;">
+            <div class="row" style="padding-top: 30px; text-align: center;">
                 <div class="dropdown">
                     <select style="border-radius: 8px; background-color: #3f3299; color: white; text-align: center;">
                         <option value="#">Pick A Seat</option>
@@ -355,9 +158,9 @@
                 </div>
             </div>
             
-            <div class="row" style="text-align: center; padding-top: 20px;">
-                <form action="seat.php" method="POST">
-                    <button class="btn btn-primary" name="jam5" type="submit" style="border-radius: 15px; color: white; background-color: #189bcc; font-weight:bold; width: 200px">Reservation</button>
+            <div class="row" style="text-align: center; padding-top: 30px;">
+                <form action="seat2.php" method="POST">
+                    <button class="btn btn-primary" name="reserve" type="submit" style="border-radius: 15px; color: white; background-color: #189bcc; font-weight:bold; width: 200px">Reservation</button>
                 </form>
             </div>
 

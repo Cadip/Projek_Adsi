@@ -194,7 +194,7 @@
                     <div class="col-md-12 text-center">
                         <ul class="footer-payments">
                             <div class="col-lg-3">
-                                <li><a href="ticket.php"><i class="fa fa-home" style="color:white;"></i></a></li>
+                                <li><a href="homepage.php"><i class="fa fa-home" style="color:white;"></i></a></li>
                             </div>
                             <div class="col-lg-3">
                                 <li><a href="#"><i class="fa fa-ticket" style="color:white;"></i></a></li>
@@ -203,7 +203,7 @@
                                 <li><a href="#"><i class="fa-solid fa-cookie" style="color: white"></i></a></li>
                             </div>
                             <div class="col-lg-3">
-                                <li><a href="#"><i class="fa fa-user" style="color: white;"></i></a></li>
+                                <li><a href="profile.php"><i class="fa fa-user" style="color: white;"></i></a></li>
                             </div>
                         </ul>
                     </div>

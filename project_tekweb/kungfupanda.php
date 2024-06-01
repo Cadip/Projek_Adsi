@@ -2,6 +2,10 @@
 	session_start();
 	include('koneksi.php');
 
+    $query1 = "SELECT SUM(score) AS total, COUNT(score) AS jumlah FROM rating WHERE film='Kungfu Panda'";
+	$stmt = $conn->query($query1);
+	$rating = $stmt->fetch();
+
     if (isset($_POST['jam1'])) {
         $_SESSION['jam'] = $_POST['jam1'];
         header("Location: seat2.php");
@@ -104,7 +108,26 @@
                     <h1 style="color: white;">KUNGFU PANDA 4</h1>
                 </div>
 
-                <div class="row" style="text-align: center; padding-top: 80px">
+                <div class="row" style="padding-top: 20px">
+                    <div class="row">
+                        <div class="col-lg-6" style="text-align: right">
+                            <a href="#" style="color: white"><i class="fa fa-star" style="color: #006693"></i></a>
+                        </div>
+                        <div class="col-lg-6" style="text-align: left;">
+                            <a href="#" style="color: white">
+                                <?php
+                                    if ($rating['jumlah']!=NULL) {
+                                        echo $rating['total']/$rating['jumlah'];
+                                    }else {
+                                        echo '0';
+                                    }
+                                ?>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" style="text-align: center; padding-top: 50px">
                     <div class="container" style="background-color: #2c2738; border-radius: 12px; width: 50%">
                         <p style="color: #e7e7e9; margin: 10px">Po faces his greatest challenge yet as he transitions into his new role as the Spiritual Leader of the Valley of Peace. 
                         In this new adventure, Po must find and train a successor to become the next Dragon Warrior. 
@@ -115,11 +138,11 @@
                     </div>
                 </div>
 
-                <div class="row" style="text-align: center; padding-top: 80px">
+                <div class="row" style="text-align: center; padding-top: 50px">
                     <h3 style="color: white">SELECT TIME</h3>
                 </div>
 
-                <div class="row" style="padding-top: 5%">
+                <div class="row" style="padding-top: 3%">
                     <div class="row">
                         <form action="kungfupanda.php" method="POST">
                             <ul style="padding-left: 20%">

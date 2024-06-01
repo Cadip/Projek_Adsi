@@ -68,14 +68,14 @@ if (isset($_POST['create_account'])) {
 					<!-- section title -->
 					<div class="col-md-12">
 						<div class="login-section" style="text-align: center">
-							<img src="img/avatar.png" alt="Avatar" class="avatar" style="width:150px;">
+							<img src="img/aldo.png" alt="Avatar" class="avatar" style="width:150px;">
 							<h2 style="color: white">Login</h2>
 							<form action="sign-in.php" method="POST">
 								<h5 style="text-align: left; color: white">Username</h5>
 								<input class="form-control" type="text" name="username" placeholder="username" style="border-radius: 15px;"><br>
 								<h5 style="text-align: left; color: white">Password</h5>
 								<input class="form-control" type="password" name="password" placeholder="password" style="border-radius: 15px;"><br>
-								<button class="btn btn-danger mt-3" type="submit" name="store_session" style="border-radius: 15px;">Login</button><br><br>
+								<button class="btn btn-danger" type="submit" name="store_session" style="border-radius: 15px; background-color: red;">Login</button><br><br>
 								<a href="sign-up.php" style="color: white; padding-left: 30px">Didn't have an account? click here to sign up</a>
 							</form>
 							<?php
