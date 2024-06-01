@@ -2,8 +2,9 @@
 	session_start();
 	include('koneksi.php');
 
-    if (isset($_POST['reserve'])) {
-        header('Location: payment3.php');
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $_SESSION["seat"] = $_POST["seat"];
+        header("Location: payment1.php");
         exit();
     }
 ?>
@@ -154,26 +155,27 @@
 
             <div class="row" style="padding-top: 30px; text-align: center;">
                 <div class="dropdown">
-                    <select style="border-radius: 8px; background-color: #3f3299; color: white; text-align: center;">
+                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
+                    <select name="seat" style="border-radius: 5px; background-color: #3f3299; color: white; text-align: center; font-size: 16px; padding: 4px">
                         <option value="#">Pick A Seat</option>
-                        <option href="#">1</option>
-                        <option href="#">2</option>
-                        <option href="#">3</option>
-                        <option href="#">4</option>
-                        <option href="#">12</option>
-                        <option href="#">13</option>
-                        <option href="#">14</option>
-                        <option href="#">15</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
                     </select>
+                    <div class="row" style="padding: 20px">
+                    <button class="btn btn-primary" 
+                    style="border-radius: 15px; color: white; background-color: #189bcc; font-weight:bold; width: 200px; font-size: 25px;" 
+                    type="submit">Order</button>
+                    </div>
+                </form>
                 </div>
             </div>
-            
-            <div class="row" style="text-align: center; padding-top: 30px;">
-                <form action="seat3.php" method="POST">
-                    <button class="btn btn-primary" name="reserve" type="submit" style="border-radius: 15px; color: white; background-color: #189bcc; font-weight:bold; width: 200px">Reservation</button>
-                </form>
-            </div>
-
+        
 		<!-- jQuery Plugins -->
 		<script src="js/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>

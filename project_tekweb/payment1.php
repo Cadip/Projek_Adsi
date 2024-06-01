@@ -1,8 +1,9 @@
 <?php	
 	session_start();
 	include('koneksi.php');
-
-    
+	if (isset($_SESSION["seat"])) {
+        $seat = $_SESSION["seat"];
+    }
 ?>
 
 <!DOCTYPE html>
@@ -110,8 +111,17 @@
 		<!-- DESKRIPSI -->
 		<div class="row">
 			<div class="row">
-				<div class="card">
-
+				<div class="container" style= "background-color: #189bcc; margin-top: 2%; width: 500px; border-radius: 15px">
+				<div class="col-lg-6">
+					<p style="color: black; text-align: center; font-weight: bold; font-size: 15px; padding-top: 10px">Movie: Solo Leveling</p>
+					<p style="color: black; text-align: center; font-weight: bold; font-size: 15px; padding-top: 10px">The selected seat is: <?php echo $seat; ?></p>
+					<p style="color: black; text-align: center; font-weight: bold; font-size: 15px; padding-top: 10px">Total Price: Rp.50.000,00</p>
+				</div>
+				<div class="col-lg-6" style= "text-align: center; padding-top: 37px; padding-right: 2px">
+					<button class= "btn btn-success" style= "padding: 16px; border-radius: 16px; font-style:italic; font-weight:bolder"> 
+						CONFIRM
+					</button>
+				</div>
 				</div>
 			</div>
 		</div>
