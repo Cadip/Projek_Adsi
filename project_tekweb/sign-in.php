@@ -12,7 +12,7 @@ if (isset($_POST['store_session'])) {
 		$_SESSION['id'] = $row['id_user'];
 		$_SESSION['username'] = $_POST['username'];
 		$_SESSION['password'] = $_POST['password'];
-		header('location:ticket.php');
+		header('location: homepage.php');
 	} else
 		$warning = 'Username atau Password Salah!';
 }

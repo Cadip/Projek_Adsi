@@ -4,26 +4,26 @@
 
     if (isset($_POST['jam1'])) {
         $_SESSION['jam'] = $_POST['jam1'];
-        header("Location: seat.php");
+        header("Location: seat3.php");
         exit();
     }elseif (isset($_POST['jam2'])) {
         $_SESSION['jam'] = $_POST['jam2'];
-        header("Location: seat.php");
+        header("Location: seat3.php");
         exit();
     }
     elseif (isset($_POST['jam3'])) {
         $_SESSION['jam'] = $_POST['jam3'];
-        header("Location: seat.php");
+        header("Location: seat3.php");
         exit();
     }
     elseif (isset($_POST['jam4'])) {
         $_SESSION['jam'] = $_POST['jam4'];
-        header("Location: seat.php");
+        header("Location: seat3.php");
         exit();
     }
     elseif (isset($_POST['jam5'])) {
         $_SESSION['jam'] = $_POST['jam5'];
-        header("Location: seat.php");
+        header("Location: seat3.php");
         exit();
     }
 ?>
@@ -63,7 +63,7 @@
 	<style>
     body{
         overflow-x: hidden;
-        overflow-y: ;
+        overflow-y: hidden;
         background-color: #151023;
         margin: 40px;
         margin-left: 50px;
@@ -96,7 +96,7 @@
                 <div class="row">
                     <ul class="footer-payments">
                         <div class="col-lg-3">
-                            <li><a href="ticket.php"><i class="fa fa-chevron-left" style="color:white;"></i></a></li>
+                            <li><a href="homepage.php"><i class="fa fa-chevron-left" style="color:white;"></i></a></li>
                         </div>
                     </ul>
                 </div>
