@@ -4,6 +4,24 @@
 	if (isset($_SESSION["seat"])) {
         $seat = $_SESSION["seat"];
     }
+
+	if (isset($_POST['confirm'])) {
+		$username = $_SESSION['username'];
+		$film = $_SESSION['film'];
+		$jam = $_SESSION['jam'];
+
+		if ($film == 'Solo Leveling') {
+			$studio = 1;
+		}elseif ($film == 'Kungfu Panda 4') {
+			$studio = 2;
+		}elseif ($film == 'Dune: Part Two') {
+			$studio = 3;
+		}
+
+		$sql = "INSERT INTO detail_pembayaran (username, kodeKursi, studio, film, jam, total) VALUES ('$username', '$studio.$seat', $studio, '$film', '$jam', 50000)";
+        $conn->exec($sql);
+        header("Location: homepage.php");
+	}
 ?>
 
 <!DOCTYPE html>
@@ -64,6 +82,11 @@
 	.card{
 		text-align: center;
 	}
+
+	.button:active {
+		background-color: #3e8e41;
+		transform: translateY(4px);
+	}
     </style>
 
 </head>
@@ -88,21 +111,21 @@
 		<div class="row">
 			<div class="row" style="padding-top: 30px; text-align: center">
 				<form action="payment1.php" method="POST">
-					<button class="btn btn-primary" name="wallet" type="submit" style="border-radius: 12px; color: white; background-color: #352858; font-weight:bold; font-size: 40px; width: 300px">WALLET</button>
+					<button class="button" name="wallet" type="submit" style="border-radius: 12px; color: white; background-color: #352858; font-weight:bold; font-size: 40px; width: 300px">WALLET</button>
 				</form>
 			</div>
 		</div>
 		<div class="row">
 			<div class="row" style="padding-top: 30px; text-align: center">
 				<form action="payment1.php" method="POST">
-					<button class="btn btn-primary" name="qris" type="submit" style="border-radius: 12px; color: white; background-color: #352858; font-weight:bold; font-size: 40px;  width: 300px">QRIS</button>
+					<button class="button" name="qris" type="submit" style="border-radius: 12px; color: white; background-color: #352858; font-weight:bold; font-size: 40px;  width: 300px">QRIS</button>
 				</form>
 			</div>
 		</div>
 		<div class="row">
 			<div class="row" style="padding-top: 30px; text-align: center">
 				<form action="payment1.php" method="POST">
-					<button class="btn btn-primary" name="bca" type="submit" style="border-radius: 12px; color: white; background-color: #352858; font-weight:bold; font-size: 40px;  width: 300px">BCA</button>
+					<button class="button" name="bca" type="submit" style="border-radius: 12px; color: white; background-color: #352858; font-weight:bold; font-size: 40px;  width: 300px">BCA</button>
 				</form>
 			</div>
 		</div>
@@ -113,14 +136,17 @@
 			<div class="row">
 				<div class="container" style= "background-color: #189bcc; margin-top: 2%; width: 500px; border-radius: 15px">
 				<div class="col-lg-6">
-					<p style="color: black; text-align: center; font-weight: bold; font-size: 15px; padding-top: 10px">Movie: Solo Leveling</p>
+					<p style="color: black; text-align: center; font-weight: bold; font-size: 15px; padding-top: 10px">Movie: <?php echo $_SESSION['film']; ?></p>
+					<p style="color: black; text-align: center; font-weight: bold; font-size: 15px; padding-top: 10px">Time: <?php echo $_SESSION['jam']; ?> WIB</p>
 					<p style="color: black; text-align: center; font-weight: bold; font-size: 15px; padding-top: 10px">The selected seat is: <?php echo $seat; ?></p>
 					<p style="color: black; text-align: center; font-weight: bold; font-size: 15px; padding-top: 10px">Total Price: Rp.50.000,00</p>
 				</div>
-				<div class="col-lg-6" style= "text-align: center; padding-top: 37px; padding-right: 2px">
-					<button class= "btn btn-success" style= "padding: 16px; border-radius: 16px; font-style:italic; font-weight:bolder"> 
-						CONFIRM
-					</button>
+				<div class="col-lg-6" style= "text-align: center; padding-top: 52px; padding-right: 2px">
+					<form action="payment1.php" method="POST">
+						<button class= "btn btn-success" name="confirm" style= "padding: 16px; border-radius: 16px; font-style:italic; font-weight:bolder"> 
+							CONFIRM
+						</button>
+					</form>
 				</div>
 				</div>
 			</div>

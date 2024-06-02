@@ -62,14 +62,17 @@
 
 	<body>
         <!-- MAIN -->
-        <div class="row" style="background-color: #151023; text-align: center; padding-top: 220px; padding-bottom: 250px">
+        <div class="row" style="background-color: #151023; text-align: center; padding-top: 220px; padding-bottom: 65px">
             <div class="row">
                 <div class="row" style="padding-bottom: 20px">
-                    <a href="#" ><i class="fa fa-warning" style="color:red; font-size: 100px"></i></a>
+                    <button class="btn btn-success" name="logout" type="submit" style="border-radius: 15px; color: white; background-color: #20b454; font-weight:bold; font-size: 30px; width: 250px"><a href="#" style="color: white"><?php echo $_SESSION['username'];?> Profile</a></button>
+                </div>
+                <div class="row" style="padding-bottom: 20px">
+                    <button class="btn btn-primary" name="logout" type="submit" style="border-radius: 15px; color: white; background-color: #6242fc; font-weight:bold; font-size: 30px; width: 250px"><a href="#" style="color: white">My Wallet</a></button>
                 </div>
                 
-                <div>
-                    <button class="btn btn-danger" name="logout" type="submit" style="border-radius: 15px; color: white; background-color: red; font-weight:bold; font-size: 30px"><a href="logout.php" style="color: white">LOG OUT</a></button>
+                <div style="padding-top: 150px">
+                    <button class="btn btn-danger" name="logout" type="submit" style="border-radius: 15px; color: white; background-color: red; font-weight:bold; font-size: 30px; width: 250px"><a href="logout.php" style="color: white">LOG OUT</a></button>
                 </div>
             </div>
         </div>
@@ -84,7 +87,7 @@
                                 <li><a href="homepage.php"><i class="fa fa-home" style="color:white;"></i></a></li>
                             </div>
                             <div class="col-lg-3">
-                                <li><a href="#"><i class="fa fa-ticket" style="color:white;"></i></a></li>
+                                <li><a href="ticket.php"><i class="fa fa-ticket" style="color:white;"></i></a></li>
                             </div>
                             <div class="col-lg-3">
                                 <li><a href="#"><i class="fa-solid fa-cookie" style="color: white"></i></a></li>

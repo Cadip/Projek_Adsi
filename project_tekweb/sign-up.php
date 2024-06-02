@@ -12,7 +12,7 @@ if (isset($_POST['create_account'])) {
     } else {
         $sql = "INSERT INTO user (username, password, email) VALUES ('$user', '$pass', '$email')";
         $conn->exec($sql);
-        header("Location: homepage.php");
+        header("Location: sign-in.php");
     }
 }
 if (isset($_POST['sign_in'])) {

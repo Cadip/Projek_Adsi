@@ -2,36 +2,47 @@
 	session_start();
 	include('koneksi.php');
 
-    $query1 = "SELECT SUM(score) AS total, COUNT(score) AS jumlah FROM rating WHERE film='Dune'";
+    $query1 = "SELECT SUM(score) AS total, COUNT(score) AS jumlah FROM rating WHERE film='Dune: Part Two'";
 	$stmt = $conn->query($query1);
 	$rating = $stmt->fetch();
 
     if (isset($_POST['jam1'])) {
-        $_SESSION['jam'] = $_POST['jam1'];
+        $_SESSION['jam'] = '16.00';
         header("Location: seat3.php");
         exit();
     }elseif (isset($_POST['jam2'])) {
-        $_SESSION['jam'] = $_POST['jam2'];
+        $_SESSION['jam'] = '17.00';
         header("Location: seat3.php");
         exit();
     }
     elseif (isset($_POST['jam3'])) {
-        $_SESSION['jam'] = $_POST['jam3'];
+        $_SESSION['jam'] = '18.00';
         header("Location: seat3.php");
         exit();
     }
     elseif (isset($_POST['jam4'])) {
-        $_SESSION['jam'] = $_POST['jam4'];
+        $_SESSION['jam'] = '19.00';
         header("Location: seat3.php");
         exit();
     }
     elseif (isset($_POST['jam5'])) {
-        $_SESSION['jam'] = $_POST['jam5'];
+        $_SESSION['jam'] = '20.00';
         header("Location: seat3.php");
         exit();
     }
 
-
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $rate = $_POST['rate'];
+        $username = $_SESSION['username'];
+        $film = $_SESSION['film'];
+        
+        if ($rate != 0) {
+            $sql = "INSERT INTO rating (score, username, film) VALUES ('$rate', '$username', '$film')";
+            $conn->exec($sql);
+            header("Location: dune.php");
+            exit();
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -111,6 +122,7 @@
                     <h4 style="color: #e7e7e9;">part two</h6>
                 </div>
 
+                <!-- RATE -->
                 <div class="row" style="padding-top: 20px">
                     <div class="row">
                         <div class="col-lg-6" style="text-align: right">
@@ -128,7 +140,31 @@
                             </a>
                         </div>
                     </div>
+                    <div class="row" style="padding-top: 20px; text-align: center;">
+                        <div class="dropdown">
+                            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
+                                <select name="rate" style="border-radius: 5px; background-color: #3f3299; color: white; text-align: center; font-size: 15px; padding: 4px">
+                                    <option value="#">RATE</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                                <button class="btn btn-primary" 
+                                    style="border-radius: 15px; color: white; background-color: #189bcc; font-weight:bold; font-size: 15px;" 
+                                    type="submit">SUBMIT
+                                </button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
+                <!-- RATE -->
 
                 <div class="row" style="text-align: center; padding-top: 50px">
                     <div class="container" style="background-color: #2c2738; border-radius: 12px; width: 50%">

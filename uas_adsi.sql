@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 01, 2024 at 02:06 PM
+-- Generation Time: Jun 02, 2024 at 11:13 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -42,6 +42,30 @@ CREATE TABLE `billing` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `detail_pembayaran`
+--
+
+CREATE TABLE `detail_pembayaran` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `kodeKursi` varchar(55) NOT NULL,
+  `studio` int(11) NOT NULL,
+  `film` varchar(255) NOT NULL,
+  `jam` varchar(255) NOT NULL,
+  `total` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `detail_pembayaran`
+--
+
+INSERT INTO `detail_pembayaran` (`id`, `username`, `kodeKursi`, `studio`, `film`, `jam`, `total`) VALUES
+(3, 'Adi', '1.15', 1, 'Solo Leveling', '19.00', 50000),
+(4, 'Adi', '1.4', 1, 'Solo Leveling', '18.00', 50000);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `film`
 --
 
@@ -57,7 +81,7 @@ CREATE TABLE `film` (
 --
 
 INSERT INTO `film` (`id`, `nama`, `jam`, `durasi`) VALUES
-(1, 'Solo Leveling', '15.10', '120');
+(1, 'Solo Leveling', '16.00', '120');
 
 -- --------------------------------------------------------
 
@@ -123,6 +147,18 @@ INSERT INTO `kategori` (`id_kategori`, `nama_kategori`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `kursi`
+--
+
+CREATE TABLE `kursi` (
+  `id` int(11) NOT NULL,
+  `kode` varchar(55) NOT NULL,
+  `status` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `rating`
 --
 
@@ -138,7 +174,20 @@ CREATE TABLE `rating` (
 --
 
 INSERT INTO `rating` (`id`, `score`, `username`, `film`) VALUES
-(1, 8, 'Bambang', 'Solo Leveling');
+(26, 9, 'Aku', 'Dune: Part Two'),
+(27, 7, 'Aku', 'Kungfu Panda 4'),
+(28, 8, 'Aku', 'Solo Leveling');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `studio`
+--
+
+CREATE TABLE `studio` (
+  `id` int(11) NOT NULL,
+  `jumlah_kursi` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -158,7 +207,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `username`, `password`, `email`) VALUES
-(1, 'Aku', '2004', 'bli@gmail.com');
+(1, 'Aku', '2004', 'bli@gmail.com'),
+(5, 'Adi', '2004', 'c1422@john.petra');
 
 -- --------------------------------------------------------
 
@@ -182,6 +232,12 @@ CREATE TABLE `wishlist` (
 --
 ALTER TABLE `billing`
   ADD PRIMARY KEY (`id_billing`);
+
+--
+-- Indexes for table `detail_pembayaran`
+--
+ALTER TABLE `detail_pembayaran`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `film`
@@ -208,9 +264,21 @@ ALTER TABLE `kategori`
   ADD PRIMARY KEY (`id_kategori`);
 
 --
+-- Indexes for table `kursi`
+--
+ALTER TABLE `kursi`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `rating`
 --
 ALTER TABLE `rating`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `studio`
+--
+ALTER TABLE `studio`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -234,6 +302,12 @@ ALTER TABLE `wishlist`
 --
 ALTER TABLE `billing`
   MODIFY `id_billing` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `detail_pembayaran`
+--
+ALTER TABLE `detail_pembayaran`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `film`
@@ -260,16 +334,28 @@ ALTER TABLE `kategori`
   MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `kursi`
+--
+ALTER TABLE `kursi`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `rating`
 --
 ALTER TABLE `rating`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+
+--
+-- AUTO_INCREMENT for table `studio`
+--
+ALTER TABLE `studio`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `wishlist`

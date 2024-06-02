@@ -3,12 +3,15 @@
 	include('koneksi.php');
 
     if (isset($_POST['dune'])) {
+        $_SESSION['film'] = 'Dune: Part Two';
         header("Location: dune.php");
         exit();
     } else if (isset($_POST['kungfu-panda'])) {
+        $_SESSION['film'] = 'Kungfu Panda 4';
         header("Location: kungfupanda.php");
         exit();
     } else if (isset($_POST['solo-leveling'])) {
+        $_SESSION['film'] = 'Solo Leveling';
         header("Location: sololeveling.php");
         exit();
     } else if (isset($_POST['gangnam-zombie'])) {
@@ -126,7 +129,7 @@
                         <div class="col-lg-12">
                             <div class="card" style="border-radius: 15px; padding-bottom: 20px; background-color: #009CDF">
                                 <img src="./img/dune.png" alt="Avatar" style="width:30%; padding-top: 20px">
-                                <h4 style="color: white; padding-top: 20px">Dune</h4> 
+                                <h4 style="color: white; padding-top: 20px">Dune: Part Two</h4> 
                                 <form action="homepage.php" method="POST">
                                     <button class="btn btn-primary mt-3" type="submit" name="dune" style="border-radius: 15px; color: blue; background-color: white; font-weight:bold;">Buy Ticket</button>
                                 </form>
@@ -197,7 +200,7 @@
                                 <li><a href="homepage.php"><i class="fa fa-home" style="color:white;"></i></a></li>
                             </div>
                             <div class="col-lg-3">
-                                <li><a href="#"><i class="fa fa-ticket" style="color:white;"></i></a></li>
+                                <li><a href="ticket.php"><i class="fa fa-ticket" style="color:white;"></i></a></li>
                             </div>
                             <div class="col-lg-3">
                                 <li><a href="#"><i class="fa-solid fa-cookie" style="color: white"></i></a></li>

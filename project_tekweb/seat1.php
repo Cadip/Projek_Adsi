@@ -132,6 +132,13 @@
                 <div class="row" style="text-align: center;">
                     <h1 style="color: white;">CHOOSE SEAT</h1>
                 </div>
+                <div class="row" style="text-align: center;">
+                    <h2 style="color: grey">
+                        <?php
+                            echo $_SESSION['jam'];
+                        ?>
+                    </h2>
+                </div>
                 <div class="container" style="background-color: #189bcc; border-radius: 12px; margin-top: 20px; width: 50%">
                     
                 </div>

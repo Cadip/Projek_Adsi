@@ -4,7 +4,7 @@
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION["seat"] = $_POST["seat"];
-        header("Location: payment1.php");
+        header("Location: payment2.php");
         exit();
     }
 ?>
@@ -82,7 +82,7 @@
     position: relative;
     display: inline-block;
     border-radius: 12px;
-    background-color: #100080;
+    /* background-color: #100080; */
     }
 
     .dropdown-content {
@@ -131,6 +131,13 @@
             <div class="row">
                 <div class="row" style="text-align: center;">
                     <h1 style="color: white;">CHOOSE SEAT</h1>
+                </div>
+                <div class="row" style="text-align: center;">
+                    <h2 style="color: grey">
+                        <?php
+                            echo $_SESSION['jam'];
+                        ?>
+                    </h2>
                 </div>
                 <div class="container" style="background-color: #189bcc; border-radius: 12px; margin-top: 20px; width: 50%">
                     
